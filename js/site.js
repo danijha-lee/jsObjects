@@ -1,31 +1,42 @@
-function displayMessage() {
-    let msg = "";
+let contacts = [];
+// a contact to screen
+function addContact() {
+    //object create\
+    
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let email = document.getElementById("email").value;
+    
+    const contact = 
+    {
+        firstName: firstName,
+        lastName: lastName,
+        email : email
+    }
+    //set items
+    // contact.firstName = "John";
+    // contact.lastName = "Smith";
+    // contact.email = "jsmith@mail.com"
 
-    msg = document.getElementById("message").value;
+    //retrive the items or values
+  
+    contacts.push(contact);
 
-    alert(msg);
+    displayContacts(contacts);
+    
+    document.getElementById("myForm").reset();
+
 }
 
+function displayContacts(contacts) {
+       document.getElementById("results").innerHTML = "";
+    for (let index = 0; index < contacts.length; index++) {
 
-function displayMessage2() {
-    let msg = "";
-
-    msg = document.getElementById("message").value;
-
-    Swal.fire(msg);
+      
+       
+        let templateRow = `<tr><td>${contacts[index].firstName}</td><td>${contacts[index].lastName}</td><td>${contacts[index].email}</td></tr>`
+        document.getElementById("results").innerHTML += templateRow;
+         
+    }
+  
 }
-
-
-// Two functions
-// function displayMessage(msg) {
-
-//     alert(msg);
-// }
-
-// function getMessage() {
-//     let msg = "";
-
-//     msg = document.getElementById("message").value;
-
-//     displayMessage(msg);
-// }
